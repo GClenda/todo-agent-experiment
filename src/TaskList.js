@@ -1,4 +1,5 @@
 import React from 'react';
+import { TrashIcon } from '@primer/octicons-react';
 
 const TaskList = React.memo(function TaskList({ tasks, onToggleTask, onDeleteTask }) {
   if (tasks.length === 0) {
@@ -44,7 +45,7 @@ const TaskList = React.memo(function TaskList({ tasks, onToggleTask, onDeleteTas
               cursor: 'pointer'
             }}
           >
-            Delete
+            <TrashIcon size={16} />
           </button>
         </li>
       ))}
