@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import TaskInput from './TaskInput';
 import TaskList from './TaskList';
+import './App.css';
 
 function App() {
   const [tasks, setTasks] = useState([]);
@@ -25,8 +26,11 @@ function App() {
   };
 
   return (
-    <div style={{ padding: '20px', maxWidth: '600px', margin: '0 auto' }}>
-      <h1>Todo List</h1>
+    <div className="app-container">
+      <header className="app-header">
+        <h1 className="app-title">Todo List</h1>
+        <p className="app-subtitle">Organize your tasks efficiently</p>
+      </header>
       <TaskInput onAddTask={addTask} />
       <TaskList 
         tasks={tasks} 
