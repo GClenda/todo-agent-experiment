@@ -1,6 +1,6 @@
 import React from 'react';
 
-function TaskList({ tasks, onToggleTask, onDeleteTask }) {
+const TaskList = React.memo(function TaskList({ tasks, onToggleTask, onDeleteTask }) {
   if (tasks.length === 0) {
     return <p>No tasks yet. Add a task above!</p>;
   }
@@ -50,6 +50,6 @@ function TaskList({ tasks, onToggleTask, onDeleteTask }) {
       ))}
     </ul>
   );
-}
+});
 
 export default TaskList;
