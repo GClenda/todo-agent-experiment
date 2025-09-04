@@ -12,7 +12,11 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "deploy:vercel": "vercel --prod",
+    "deploy:netlify": "netlify deploy --prod --dir=build",
+    "deploy:surge": "npm run build && surge build",
+    "preview": "npm run build && serve -s build"
   },
   "eslintConfig": {
     "extends": [
