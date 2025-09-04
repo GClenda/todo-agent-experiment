@@ -3,53 +3,44 @@ import { TrashIcon } from '@primer/octicons-react';
 
 const TaskList = React.memo(function TaskList({ tasks, onToggleTask, onDeleteTask }) {
   if (tasks.length === 0) {
-    return <p>No tasks yet. Add a task above!</p>;
+    return (
+      <div className="empty-state">
+        <div className="empty-state-icon">📝</div>
+        <p>No tasks yet. Add a task above!</p>
+      </div>
+    );
   }
 
   return (
-    <ul style={{ listStyle: 'none', padding: 0 }}>
-      {tasks.map(task => (
-        <li 
-          key={task.id}
-          style={{
-            display: 'flex',
-            alignItems: 'center',
-            padding: '10px',
-            border: '1px solid #ddd',
-            marginBottom: '5px',
-            backgroundColor: task.completed ? '#f0f0f0' : 'white'
-          }}
-        >
-          <input
-            type="checkbox"
-            checked={task.completed}
-            onChange={() => onToggleTask(task.id)}
-            style={{ marginRight: '10px' }}
-          />
-          <span 
-            style={{
-              flex: 1,
-              textDecoration: task.completed ? 'line-through' : 'none',
-              color: task.completed ? '#888' : 'black'
-            }}
+    <div className="task-list-container">
+      <ul className="task-list">
+        {tasks.map(task => (
+          <li 
+            key={task.id}
+            className={`task-item ${task.completed ? 'completed' : ''}`}
           >
-            {task.text}
-          </span>
-          <button
-            onClick={() => onDeleteTask(task.id)}
-            style={{
-              padding: '4px 8px',
-              backgroundColor: '#dc3545',
-              color: 'white',
-              border: 'none',
-              cursor: 'pointer'
-            }}
-          >
-            <TrashIcon size={16} />
-          </button>
-        </li>
-      ))}
-    </ul>
+            <input
+              type="checkbox"
+              checked={task.completed}
+              onChange={() => onToggleTask(task.id)}
+              className="task-checkbox"
+            />
+            <span 
+              className={`task-text ${task.completed ? 'completed' : ''}`}
+            >
+              {task.text}
+            </span>
+            <button
+              onClick={() => onDeleteTask(task.id)}
+              className="task-delete-button"
+              title="Delete task"
+            >
+              <TrashIcon size={16} />
+            </button>
+          </li>
+        ))}
+      </ul>
+    </div>
   );
 });
 
