@@ -1,3 +1,5 @@
+> ⚠️ **TEST PROJECT** – This repository is a test used to benchmark AI coding agents. It is not intended for production use.
+
 # Todo List App
 
 A simple, modern Todo List web application built with React. This project was also used as an experiment to benchmark AI coding agents (GitHub Copilot Coding Agent, Claude Code, and Codex) by having each build the app from scratch.
